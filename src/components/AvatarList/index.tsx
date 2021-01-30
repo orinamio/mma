@@ -35,10 +35,6 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
     [setActiveIndex, activeIndex]
   );
 
-  // render views items
-  const renderAvatarItem = React.useCallback(renderItem, [renderItem]);
-
-  // render
   return (
     <FlatList
       ref={ref}
@@ -51,7 +47,7 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
       contentInsetAdjustmentBehavior="automatic"
       style={styles.avatarListContainer}
       contentContainerStyle={styles.avatarListContentContainer}
-      renderItem={renderAvatarItem}
+      renderItem={renderItem}
       getItemLayout={getItemLayoutAvatarFlatList}
       onMomentumScrollEnd={onMomentumScrollEndAvatarFlatList}
     />

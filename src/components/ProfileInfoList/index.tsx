@@ -37,9 +37,6 @@ const ProfileInfoList: React.FunctionComponent<ProfileInfoListProps> = React.for
     [setActiveIndex, activeIndex]
   );
 
-  // render views items
-  const renderProfileInfoItem = React.useCallback(renderItem, [renderItem]);
-
   // render
   return (
     <FlatList
@@ -53,7 +50,7 @@ const ProfileInfoList: React.FunctionComponent<ProfileInfoListProps> = React.for
       style={styles.profileInfoListContainer}
       indicatorStyle="default"
       initialNumToRender={INITIAL_PROFILE_LIST_NUMBER_TO_RENDER}
-      renderItem={renderProfileInfoItem}
+      renderItem={renderItem}
       getItemLayout={getItemLayoutProfileInfoFlatList}
       onMomentumScrollEnd={onMomentumScrollEndProfileInfoFlatList}
     />
