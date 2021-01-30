@@ -67,10 +67,10 @@ const HomeScreen: React.FunctionComponent<HomeStackScreenProps> = ({
   );
 
   const renderProfileInfoItem = React.useCallback(
-    ({ item, index }: RenderProfileItemProps) => {
+    ({ item }: RenderProfileItemProps) => {
       return (
         <View style={styles.profileInfoContainer}>
-          <ProfileInfoItem {...{ profile: item, index }} />
+          <ProfileInfoItem {...{ profile: item, bioNumberOfLines: 10 }} />
         </View>
       );
     },

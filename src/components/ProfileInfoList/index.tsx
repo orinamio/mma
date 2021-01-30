@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FlatList } from 'react-native';
 
-import styles from '../../screens/Home/style';
+import styles from './style';
 import * as constants from '../../constants/ui';
 import { ProfileInfoListProps } from './index.t';
 

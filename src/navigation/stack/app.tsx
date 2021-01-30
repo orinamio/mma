@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../../screens/Home';
 import ProfileScreen from '../../screens/Profile';
 
-import { APP_HEADER_HEIGHT } from '../../constants/navigation';
 import { AppStackProps, AppStackParamList } from './app.t';
 
 // initialize stack navigator
@@ -18,9 +17,6 @@ const AppStack: React.FunctionComponent<AppStackProps> = () => {
         component={HomeScreen}
         options={{
           title: 'Contacts',
-          headerStyle: {
-            height: APP_HEADER_HEIGHT,
-          },
         }}
       />
       <Stack.Screen

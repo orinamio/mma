@@ -1,7 +1,5 @@
 import { Dimensions } from 'react-native';
 
-import { APP_HEADER_HEIGHT } from './navigation';
-
 // device constants
 export const DEVICE_SCREEN_HEIGHT: number = Dimensions.get('screen').height;
 export const DEVICE_SCREEN_WIDTH: number = Dimensions.get('screen').width;
@@ -25,5 +23,5 @@ export const AVATAR_LIST_CENTER_POINT: number =
 
 // profile info constants
 export const MIN_PROFILE_INFO_VIEW_HEIGHT: number =
-  DEVICE_SCREEN_HEIGHT - AVATAR_LIST_CONTAINER_HEIGHT + APP_HEADER_HEIGHT;
+  DEVICE_SCREEN_HEIGHT - AVATAR_LIST_CONTAINER_HEIGHT;
 export const PROFILE_CONTAINER_PADDING = 20;

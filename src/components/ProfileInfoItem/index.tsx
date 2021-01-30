@@ -6,19 +6,24 @@ import styles from './style';
 
 const ProfileInfoItem: React.FunctionComponent<ProfileInfoItemProps> = ({
   profile,
+  bioNumberOfLines,
 }) => {
-  const splitFullName = (
-    fullName: string | undefined
-  ): string[] | undefined => {
+  const splitFullName = React.useCallback((fullName: string | undefined):
+    | string[]
+    | undefined => {
     if (!fullName) return;
 
     const nameSplit: string[] = fullName.split(' ');
     return [nameSplit.shift(), nameSplit.join(' ')];
-  };
+  }, []);
 
-  const fullName = splitFullName(profile?.fullName);
+  const fullName = React.useMemo(() => splitFullName(profile?.fullName), [
+    profile?.fullName,
+    splitFullName,
+  ]);
+
   return (
-    <View key={profile.id}>
+    <React.Fragment key={profile.id}>
       <View style={styles.profileInfoHeader}>
         <Text
           style={styles.profileName}
@@ -58,11 +63,13 @@ const ProfileInfoItem: React.FunctionComponent<ProfileInfoItemProps> = ({
           style={styles.profileBioBodyText}
           accessible
           accessibilityLabel="Bio"
+          numberOfLines={bioNumberOfLines}
+          ellipsizeMode="tail"
         >
           {profile?.longBio}
         </Text>
       </View>
-    </View>
+    </React.Fragment>
   );
 };
 export default React.memo(ProfileInfoItem);

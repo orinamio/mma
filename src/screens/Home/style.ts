@@ -20,11 +20,6 @@ export default StyleSheet.create({
       constants.AVATAR_LIST_CENTER_POINT / 2 -
       constants.AVATAR_CONTAINER_HORIZONTAL_MARGIN,
   },
-  profileInfoListContainer: {
-    backgroundColor: colors.backgroundColor.white,
-    paddingLeft: constants.PROFILE_CONTAINER_PADDING,
-    paddingRight: constants.PROFILE_CONTAINER_PADDING,
-  },
   avatarItemContainer: {
     margin: constants.AVATAR_CONTAINER_MARGIN,
     display: 'flex',

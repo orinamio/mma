@@ -84,10 +84,7 @@ const ProfileViewer: React.FunctionComponent<ProfileViewerProps> = ({
       const position = nativeEvent.contentOffset;
 
       // current index
-      const index = Math.max(
-        0,
-        Math.round(position.y / constants.MIN_PROFILE_INFO_VIEW_HEIGHT)
-      );
+      const index = Math.max(0, Math.round(position.y / constants.MIN_PROFILE_INFO_VIEW_HEIGHT));
 
       if (index !== activeIndex) {
         updateCurrentProfileIndex(index);
