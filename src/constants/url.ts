@@ -1,0 +1,1 @@
+export const AWS_AVATAR_ENDPOINT = `https://ori-emma.s3.eu-west-2.amazonaws.com/images/avatars/`;
