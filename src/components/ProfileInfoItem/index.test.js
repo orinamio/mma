@@ -10,7 +10,7 @@ const profile = {
 };
 
 test('ProfileInfoItem should display full profile information', () => {
-  const { getByA11yRole, getByText, queryByText } = render(
+  const { getByText, queryByText } = render(
     <ProfileInfoItem profile={profile} />
   );
 

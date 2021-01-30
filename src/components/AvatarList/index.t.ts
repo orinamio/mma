@@ -1,4 +1,8 @@
-import { ListRenderItemInfo } from 'react-native';
+import {
+  ListRenderItemInfo,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 
 type ItemT = {
   id: string | number; // add option for generic type
@@ -11,13 +15,9 @@ type ListItem = {
 
 export interface AvatarListProps {
   /**
-   * Current active profile index
+   * Handles avatar list scroll event
    */
-  activeIndex: number;
-  /**
-   * Function to update active profile index
-   */
-  setActiveIndex: (index: number) => void;
+  onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
   /**
    * Data array. Objects  must include "id" key-pair
    */

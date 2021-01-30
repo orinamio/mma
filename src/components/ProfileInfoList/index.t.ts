@@ -1,4 +1,8 @@
-import { ListRenderItemInfo } from 'react-native';
+import {
+  ListRenderItemInfo,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 
 type ItemT = {
   id: string | number; // add option for generic type
@@ -11,13 +15,9 @@ type ListItem = {
 
 export interface ProfileInfoListProps {
   /**
-   * Current active profile index
+   * Handles profile info list scroll event
    */
-  activeIndex: number;
-  /**
-   * Function to update active profile index
-   */
-  setActiveIndex: (index: number) => void;
+  onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
   /**
    * Data array. Objects  must include "id" key-pair
    */
@@ -36,4 +36,8 @@ export interface ProfileInfoListProps {
    * Provides additional metadata like `index` if you need it.
    */
   renderItem: ListRenderItemInfo<ListItem> | null | undefined;
+  /**
+   * initial number of items to render
+   */
+  initialNumToRender?: number | undefined;
 }

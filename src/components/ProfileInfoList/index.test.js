@@ -15,8 +15,10 @@ const profileData = [
 ];
 
 // profile list render item
-const renderItem = ({ item, index }) => (
-  <Text testID="fullName">{item.fullName}</Text>
+const renderItem = ({ item }) => (
+  <Text key={item.fullName} testID="fullName">
+    {item.fullName}
+  </Text>
 );
 
 test('ProfileInfoList should render', () => {
@@ -27,7 +29,7 @@ test('ProfileInfoList should render', () => {
 });
 
 test('when ProfileInfoList has "data" containing two profiles, it should show two profiles', () => {
-  const { getByText, getAllByTestId } = render(
+  const { getAllByTestId } = render(
     <ProfileInfoList data={profileData} renderItem={renderItem} />
   );
 

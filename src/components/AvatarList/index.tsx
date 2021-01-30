@@ -8,7 +8,7 @@ import { AvatarListProps } from './index.t';
 const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
   FlatList,
   AvatarListProps
->(({ activeIndex, setActiveIndex, data, renderItem }, ref) => {
+>(({ data, renderItem, onScroll }, ref) => {
   // avatar flat list callbacks
   const getItemLayoutAvatarFlatList = React.useCallback((data, index) => {
     return {
@@ -17,23 +17,6 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
       index,
     };
   }, []);
-
-  const onMomentumScrollEndAvatarFlatList = React.useCallback(
-    ({ nativeEvent }) => {
-      const position = nativeEvent.contentOffset;
-
-      // current index
-      const index = Math.max(
-        0,
-        Math.round(position.x / constants.AVATAR_CONTAINER_WIDTH)
-      );
-
-      if (index !== activeIndex) {
-        setActiveIndex(index);
-      }
-    },
-    [setActiveIndex, activeIndex]
-  );
 
   return (
     <FlatList
@@ -50,7 +33,7 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
       contentContainerStyle={styles.avatarListContentContainer}
       renderItem={renderItem}
       getItemLayout={getItemLayoutAvatarFlatList}
-      onMomentumScrollEnd={onMomentumScrollEndAvatarFlatList}
+      onMomentumScrollEnd={onScroll}
     />
   );
 });

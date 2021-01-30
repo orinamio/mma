@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image } from 'react-native';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 import AvatarItemList from './index';
 
 const profileData = [
@@ -19,8 +19,9 @@ const profileData = [
 ];
 
 // avatar list render item
-const renderItem = ({ item, index }) => (
+const renderItem = ({ item }) => (
   <Image
+    key={item.id}
     source={{
       uri: item?.imageUrl,
     }}

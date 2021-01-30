@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { View, FlatList } from 'react-native';
 
-import { ProfileViewerProps } from './index.t';
 import AvatarList from '../AvatarList';
 import ProfileInfoList from '../ProfileInfoList';
+
+import { ProfileViewerProps } from './index.t';
+import * as constants from '../../constants/ui';
+
+const INITIAL_PROFILE_LIST_NUMBER_TO_RENDER = 3;
 
 const ProfileViewer: React.FunctionComponent<ProfileViewerProps> = ({
   activeIndex,
@@ -57,22 +61,56 @@ const ProfileViewer: React.FunctionComponent<ProfileViewerProps> = ({
     }
   }, [activeIndex, syncScrollViews, data]);
 
+  // on scroll cb handlers
+  const onMomentumScrollEndAvatarFlatList = React.useCallback(
+    ({ nativeEvent }) => {
+      const position = nativeEvent.contentOffset;
+
+      // current index
+      const index = Math.max(
+        0,
+        Math.round(position.x / constants.AVATAR_CONTAINER_WIDTH)
+      );
+
+      if (index !== activeIndex) {
+        updateCurrentProfileIndex(index);
+      }
+    },
+    [updateCurrentProfileIndex, activeIndex]
+  );
+
+  const onMomentumScrollEndProfileInfoFlatList = React.useCallback(
+    ({ nativeEvent }) => {
+      const position = nativeEvent.contentOffset;
+
+      // current index
+      const index = Math.max(
+        0,
+        Math.round(position.y / constants.MIN_PROFILE_INFO_VIEW_HEIGHT)
+      );
+
+      if (index !== activeIndex) {
+        updateCurrentProfileIndex(index);
+      }
+    },
+    [updateCurrentProfileIndex, activeIndex]
+  );
+
   // render
   return (
     <View>
       <AvatarList
         ref={avatarListRef}
         data={data}
-        activeIndex={activeIndex}
-        setActiveIndex={updateCurrentProfileIndex}
         renderItem={renderAvatarItem}
+        onScroll={onMomentumScrollEndAvatarFlatList}
       />
       <ProfileInfoList
         ref={profileInfoListRef}
         data={data}
-        activeIndex={activeIndex}
-        setActiveIndex={updateCurrentProfileIndex}
         renderItem={renderProfileInfoItem}
+        onScroll={onMomentumScrollEndProfileInfoFlatList}
+        initialNumToRender={INITIAL_PROFILE_LIST_NUMBER_TO_RENDER}
       />
     </View>
   );
