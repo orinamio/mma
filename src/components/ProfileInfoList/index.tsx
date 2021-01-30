@@ -40,6 +40,7 @@ const ProfileInfoList: React.FunctionComponent<ProfileInfoListProps> = React.for
   // render
   return (
     <FlatList
+      testID="profile-info-list"
       ref={ref}
       showsVerticalScrollIndicator={false}
       pagingEnabled={true}

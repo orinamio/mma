@@ -37,6 +37,7 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
 
   return (
     <FlatList
+      testID="avatar-list"
       ref={ref}
       bouncesZoom={false}
       showsHorizontalScrollIndicator={false}

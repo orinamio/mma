@@ -28,7 +28,7 @@ const AvatarItem: React.FunctionComponent<AvatarItemProps> = ({
         isActive && styles.avatarItemContainerActive,
       ]}
     >
-      <Pressable onPress={onAvatarPressCb} onLongPress={onAvatarLongPressCb}>
+      <Pressable testID="image-button" onPress={onAvatarPressCb} onLongPress={onAvatarLongPressCb}>
         <Image
           style={styles.avatar}
           source={{
