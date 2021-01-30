@@ -5,7 +5,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import ProfileInfoItem from '../../components/ProfileInfoItem';
 
 import { ProfileStackScreenProps } from '../../navigation/stack/app.t';
-import { getAvatarUrl } from '../../utils/image';
 import styles from './style';
 
 const ProfileScreen: React.FunctionComponent<ProfileStackScreenProps> = ({
@@ -21,7 +20,7 @@ const ProfileScreen: React.FunctionComponent<ProfileStackScreenProps> = ({
         <Image
           style={styles.avatar}
           source={{
-            uri: getAvatarUrl(profile?.fullName),
+            uri: profile?.imageUrl,
             cache: 'force-cache',
           }}
           accessible

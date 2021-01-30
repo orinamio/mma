@@ -11,6 +11,7 @@ import profileDataJson from '../../utils/data_mocks/profile_details.json';
 import { Profile } from './index.t';
 import styles from './style';
 import { sortArrayByKey } from '../../utils/misc';
+import { getAvatarUrl } from '../../utils/image';
 
 const STARTING_PROFILE_INDEX = 0;
 
@@ -19,6 +20,10 @@ const SORTED_PROFILE_DATA = sortArrayByKey<Profile, string>(
   profileDataJson,
   'fullName'
 );
+const FULL_PROFILE_DATA = SORTED_PROFILE_DATA.map((profile) => ({
+  ...profile,
+  imageUrl: getAvatarUrl(profile?.fullName),
+}));
 
 const HomeScreen: React.FunctionComponent<HomeStackScreenProps> = ({
   navigation,
@@ -51,7 +56,7 @@ const HomeScreen: React.FunctionComponent<HomeStackScreenProps> = ({
           {...{
             profile: item,
             index,
-            currentProfileIndex: currentProfileIndexState,
+            isActive: currentProfileIndexState == index,
             onAvatarPress,
             onAvatarLongPress,
           }}
@@ -76,7 +81,7 @@ const HomeScreen: React.FunctionComponent<HomeStackScreenProps> = ({
   return (
     <View>
       <ProfileViewer
-        data={SORTED_PROFILE_DATA}
+        data={FULL_PROFILE_DATA}
         activeIndex={currentProfileIndexState}
         setActiveIndex={setCurrentProfileIndexState}
         renderAvatarItem={renderAvatarItem}

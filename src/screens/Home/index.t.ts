@@ -3,12 +3,13 @@ export type Profile = {
   fullName: string;
   role: string;
   longBio: string;
+  imageUrl: string;
 };
 
 export type AvatarItemProps = {
   profile: Profile;
   index: number;
-  currentProfileIndex: number;
+  isActive: boolean;
   onAvatarPress: (index: number) => void;
   onAvatarLongPress?: (index: number, profile: Profile) => void;
 };

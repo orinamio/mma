@@ -3,11 +3,10 @@ import { Image, Pressable, View } from 'react-native';
 
 import { AvatarItemProps } from '../index.t';
 import styles from '../style';
-import { getAvatarUrl } from '../../../utils/image';
 
 const AvatarItem: React.FunctionComponent<AvatarItemProps> = ({
   profile,
-  currentProfileIndex,
+  isActive,
   index,
   onAvatarPress,
   onAvatarLongPress,
@@ -26,14 +25,14 @@ const AvatarItem: React.FunctionComponent<AvatarItemProps> = ({
       key={profile.id}
       style={[
         styles.avatarItemContainer,
-        currentProfileIndex == index && styles.avatarItemContainerActive,
+        isActive && styles.avatarItemContainerActive,
       ]}
     >
       <Pressable onPress={onAvatarPressCb} onLongPress={onAvatarLongPressCb}>
         <Image
           style={styles.avatar}
           source={{
-            uri: getAvatarUrl(profile?.fullName),
+            uri: profile?.imageUrl,
             cache: 'force-cache',
           }}
           accessible
