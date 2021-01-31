@@ -113,4 +113,4 @@ const ProfileViewer: React.FunctionComponent<ProfileViewerProps> = ({
   );
 };
 
-export default ProfileViewer;
+export default React.memo(ProfileViewer);

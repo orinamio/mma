@@ -91,4 +91,4 @@ const HomeScreen: React.FunctionComponent<HomeStackScreenProps> = ({
   );
 };
 
-export default HomeScreen;
+export default React.memo(HomeScreen);

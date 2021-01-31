@@ -34,4 +34,4 @@ const ProfileScreen: React.FunctionComponent<ProfileStackScreenProps> = ({
   );
 };
 
-export default ProfileScreen;
+export default React.memo(ProfileScreen);
