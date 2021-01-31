@@ -1,5 +1,5 @@
 ## Description
-This repo contains project code for the React Native Engineering challenge [here](https://www.notion.so/React-Native-Engineering-challenge-cf7aa682c1c143d9b1bc73f17bb4f8a2).
+This repo contains code for a React Native challenge.
 
 ## Getting Started
 
