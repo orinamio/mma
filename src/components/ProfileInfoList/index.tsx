@@ -38,4 +38,4 @@ const ProfileInfoList: React.FunctionComponent<ProfileInfoListProps> = React.for
   );
 });
 
-export default ProfileInfoList;
+export default React.memo(ProfileInfoList);

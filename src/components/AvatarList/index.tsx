@@ -38,4 +38,4 @@ const AvatarList: React.FunctionComponent<AvatarListProps> = React.forwardRef<
   );
 });
 
-export default AvatarList;
+export default React.memo(AvatarList);
